@@ -10,6 +10,7 @@ const display = document.querySelector('.display');
 const startBtn = document.querySelector('.start-game');
 let seconds = 3;
 const numbersArray = []
+const userArray = []
 
 // Al click genero 5 numeri casuali con la funzione che dovranno sparire dopo 30 secondi
 startBtn.addEventListener('click', () => {
@@ -19,6 +20,7 @@ startBtn.addEventListener('click', () => {
     for (let i = 0; i < 5; i++) {
         numbersArray.push( randNum() );
     };
+    console.log(numbersArray);
 
     numbersArray.forEach( element => display.innerHTML += `${element} `);
 
@@ -27,9 +29,17 @@ startBtn.addEventListener('click', () => {
             display.innerText = '';
             clearInterval(timer);
 
+            for (let i = 0; i < 5; i++) {
+                userArray.push( parseInt(prompt('Ricordi tutti i numeri?Inseriscili')));
+            };
+
+            const numWin = numbersArray.filter( element => userArray.includes(element) );
+
+            display.innerText = `Hai indovinato ${numWin.length} numero/i e sono/è ${numWin}`
+
         } else {
             seconds--
-        }
+        };
     }, 1000);
 });
 
