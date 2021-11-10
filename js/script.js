@@ -6,19 +6,39 @@
 // 1 - Stamapare in pagina 5 numeri casuali e far partire un timer di 30 secondi
 
 // ref
-let display = document.querySelector('.display');
+const display = document.querySelector('.display');
 const startBtn = document.querySelector('.start-game');
+let seconds = 3;
+const numbersArray = []
 
-// Al click genero 5 numeri casuli con la funzione che dovranno sparire dopo 30 secondi
+// Al click genero 5 numeri casuali con la funzione che dovranno sparire dopo 30 secondi
 startBtn.addEventListener('click', () => {
+
     display.innerText = '';
-    display.innerHTML = randNum(10000, 99999);
+
+    for (let i = 0; i < 5; i++) {
+        numbersArray.push( randNum() );
+    };
+
+    numbersArray.forEach( element => display.innerHTML += `${element} `);
+
+    const timer = setInterval (() => {
+        if (seconds === 0) {
+            display.innerText = '';
+            clearInterval(timer);
+
+        } else {
+            seconds--
+        }
+    }, 1000);
 });
+
+
 
 /*
 * functions
 */
 
-function randNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function randNum() {
+    return Math.floor(Math.random() * 100) + 1;
 }
