@@ -42,7 +42,7 @@ startBtn.addEventListener('click', () => {
             const numWin = numbersArray.filter( element => userArray.includes(element) );
 
             if (numWin.length == numbersArray.length) {
-                display.innerText = `Grande! Hai vinto ed indovinato ${numWin.length} numeri su ${numWin.length} e sono/è ${numWin}.`
+                display.innerText = `Grande! Hai vinto ed indovinato ${numWin.length} numeri su ${numWin.length} e sono ${numWin}.`
 
             } else if (numWin.length == 1) {
                 display.innerText = `Mi dispiace, hai perso. Hai indovinato un solo numero ${numWin.length}, ed è ${numWin}.`
