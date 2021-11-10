@@ -47,11 +47,11 @@ startBtn.addEventListener('click', () => {
             } else if (numWin.length == 1) {
                 display.innerText = `Mi dispiace, hai perso. Hai indovinato un solo numero ${numWin.length}, ed è ${numWin}.`
                 
-            } else if (numbersArray = 0) {
+            } else if (numWin.length == 0) {
                 display.innerText = `Mi dispiace, hai perso e non hai indovinato neanche un  numero.`
-                
+
             } else {
-                display.innerText = `Hai indovinato ${numWin.length} numeri e sono ${numWin}.`
+                display.innerText = `Hai perso ed hai indovinato ${numWin.length} numeri.`
 
             }
             
