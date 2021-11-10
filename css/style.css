@@ -48,6 +48,7 @@ button {
     background-color: cadetblue;
     border: 3px white;
     border-style: outset;
-    border-radius: 30px;
+    border-radius: 80px;
     cursor: pointer;
+    font-family: monospace;
 }

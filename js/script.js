@@ -18,28 +18,48 @@ startBtn.addEventListener('click', () => {
     display.innerText = '';
 
     for (let i = 0; i < 5; i++) {
-        numbersArray.push( randNum() );
+        let number;
+        do {
+            number = randNum()
+        } while (numbersArray.includes(number))
+            numbersArray.push(number);    
     };
-    console.log(numbersArray);
-
     numbersArray.forEach( element => display.innerHTML += `${element} `);
 
-    const timer = setInterval (() => {
+    const timer = setInterval ( () => {
+
         if (seconds === 0) {
+
             display.innerText = '';
+
             clearInterval(timer);
 
             for (let i = 0; i < 5; i++) {
                 userArray.push( parseInt(prompt('Ricordi tutti i numeri?Inseriscili')));
+
             };
 
             const numWin = numbersArray.filter( element => userArray.includes(element) );
 
-            display.innerText = `Hai indovinato ${numWin.length} numero/i e sono/è ${numWin}`
+            if (numWin.length == numbersArray.length) {
+                display.innerText = `Grande! Hai vinto ed indovinato ${numWin.length} numeri su ${numWin.length} e sono/è ${numWin}.`
 
+            } else if (numWin.length == 1) {
+                display.innerText = `Mi dispiace, hai perso. Hai indovinato un solo numero ${numWin.length}, ed è ${numWin}.`
+                
+            } else if (numbersArray = 0) {
+                display.innerText = `Mi dispiace, hai perso e non hai indovinato neanche un  numero.`
+                
+            } else {
+                display.innerText = `Hai indovinato ${numWin.length} numeri e sono ${numWin}.`
+
+            }
+            
         } else {
-            seconds--
+            seconds--;
+
         };
+
     }, 1000);
 });
 
